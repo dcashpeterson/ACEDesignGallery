@@ -1,0 +1,80 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "Select a Location",
+      "size": "Medium"
+    },
+    {
+      "type": "Container",
+      "$data": "${locations}",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "verticalContentAlignment": "Center",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "auto",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "Image",
+                  "url": "${imageUrl}",
+                  "size": "Small",
+                  "style": "RoundedCorners"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${name}",
+                  "weight": "Bolder",
+                  "wrap": true,
+                  "size":"Medium"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "≫",
+                  "size":"Medium"
+                }
+              ]
+            }
+          ],
+          "selectAction": {
+            "type": "Action.Submit",
+            "data": {
+              "id": "selectLocation",
+              "location": "${name}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "No locations available. Add menu items to the LunchMenuItems list in SharePoint.",
+      "wrap": true,
+      "size": "Small",
+      "isSubtle": true,
+      "$when": "${count(locations) == 0}"
+    }
+  ]
+}

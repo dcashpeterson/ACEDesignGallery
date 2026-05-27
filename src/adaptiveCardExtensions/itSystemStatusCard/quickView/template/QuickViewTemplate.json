@@ -1,0 +1,57 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "${title}",
+      "size": "Medium"
+    },
+    {
+      "type": "Container",
+      "$data": "${services}",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${title}",
+                  "weight": "Bolder",
+                  "wrap": true,
+                  "size": "Small"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${statusType}",
+                  "wrap": true,
+                  "size": "Small"
+                }
+              ]
+            }
+          ],
+          "selectAction": {
+            "type": "Action.Submit",
+            "data": {
+              "id": "issues",
+              "service": "${service}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

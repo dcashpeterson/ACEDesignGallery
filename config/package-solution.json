@@ -1,0 +1,46 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "ACE Design Gallery",
+    "id": "c809074e-4d60-4d6b-98b2-27dfaf7595fa",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Derek Cash-Peterson",
+      "privacyUrl": "https://privacy.microsoft.com/en-us/privacystatement",
+      "termsOfUseUrl": "https://unpkg.com/@microsoft/sp-core-library@1.8.2/EULA/Microsoft%20Sharepoint%20Framework%20-%20Standalone%20(free)%20Use%20Terms.docx",
+      "websiteUrl": "https://github.com/dcashpeterson/ACEDesignGallery",
+      "mpnId": "M365PnP"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "Design gallery filled with examples of Adaptive Card Extensions for use with M365 and SharePoint Framework."
+      },
+      "longDescription": {
+        "default": "Design gallery filled with examples of Adaptive Card Extensions for use with M365 and SharePoint Framework."
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "ACE Design Gallery Feature",
+        "description": "The feature that activates elements of the ACE Design Gallery solution.",
+        "id": "2c8b11a1-f9e1-43b7-88ee-710b6498129b",
+        "version": "1.0.0.0"
+      }
+    ],
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "ServiceHealth.Read.All"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/ace-design-gallery.sppkg"
+  }
+}

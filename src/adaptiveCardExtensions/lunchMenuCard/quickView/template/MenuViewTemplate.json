@@ -1,0 +1,103 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "← Back",
+                  "data": {
+                    "id": "back"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "Bolder",
+              "text": "${selectedLocation} Menu",
+              "size": "Medium",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "$data": "${menuItems}",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${title}",
+                  "weight": "Bolder",
+                  "wrap": true,
+                  "size":"Medium"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${description}",
+                  "wrap": true,
+                  "size":"Medium",
+                  "isSubtle": true,
+                  "$when": "${description != ''}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${category}",
+                  "wrap": true,
+                  "size":"Medium",
+                  "color": "Accent"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "$${formatNumber(price, 2)}",
+                  "size":"Medium",
+                  "weight": "Bolder"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "No menu items available for this location.",
+      "wrap": true,
+      "size": "Small",
+      "isSubtle": true,
+      "$when": "${count(menuItems) == 0}"
+    }
+  ]
+}

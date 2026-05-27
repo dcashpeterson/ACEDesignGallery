@@ -1,0 +1,91 @@
+{
+    "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+    "type": "AdaptiveCard",
+    "version": "1.5",
+    "body": [
+        {
+            "type": "TextBlock",
+            "weight": "Bolder",
+            "text": "${selectedService} - Issues",
+            "size": "Medium"
+        },
+        {
+            "type": "TextBlock",
+            "text": "No current issues found for this service.",
+            "size": "Small",
+            "color": "Good",
+            "wrap": true,
+            "spacing": "Medium",
+            "$when": "${count(issues) == 0}"
+        },
+        {
+            "type": "Container",
+            "$data": "${issues}",
+            "separator": true,
+            "style": "emphasis",
+            "spacing": "Small",
+            "items": [
+                {
+                    "type": "ColumnSet",
+                    "columns": [
+                        {
+                            "type": "Column",
+                            "width": "stretch",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${title}",
+                                    "weight": "Bolder",
+                                    "wrap": true,
+                                    "size": "Small"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "Column",
+                            "width": "auto",
+                            "items": [
+                                {
+                                    "type": "TextBlock",
+                                    "text": "${statusType}",
+                                    "wrap": true,
+                                    "size": "Small",
+                                    "color": "Attention"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "TextBlock",
+                    "text": "${impactDescription}",
+                    "wrap": true,
+                    "size": "Small",
+                    "spacing": "Small"
+                },
+                {
+                    "type": "FactSet",
+                    "spacing": "Small",
+                    "facts": [
+                        {
+                            "title": "Classification",
+                            "value": "${classification}"
+                        },
+                        {
+                            "title": "Feature",
+                            "value": "${feature}"
+                        },
+                        {
+                            "title": "Started",
+                            "value": "${startDateTime}"
+                        },
+                        {
+                            "title": "Resolved",
+                            "value": "${if(isResolved, 'Yes', 'No')}"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

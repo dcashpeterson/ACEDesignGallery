@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "it-system-status-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/itSystemStatusCard/ITSystemStatusCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/itSystemStatusCard/ITSystemStatusCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
+    "lunch-menu-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/lunchMenuCard/LunchMenuCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/lunchMenuCard/LunchMenuCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ITSystemStatusCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/itSystemStatusCard/loc/{locale}.js",
+    "LunchMenuCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/lunchMenuCard/loc/{locale}.js"
+  }
+}

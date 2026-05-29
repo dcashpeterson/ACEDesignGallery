@@ -17,11 +17,20 @@
           "manifest": "./src/adaptiveCardExtensions/lunchMenuCard/LunchMenuCardAdaptiveCardExtension.manifest.json"
         }
       ]
+    },
+    "site-analytics-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/siteAnalyticsCard/SiteAnalyticsCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/siteAnalyticsCard/SiteAnalyticsCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "ITSystemStatusCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/itSystemStatusCard/loc/{locale}.js",
-    "LunchMenuCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/lunchMenuCard/loc/{locale}.js"
+    "LunchMenuCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/lunchMenuCard/loc/{locale}.js",
+    "SiteAnalyticsCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/siteAnalyticsCard/loc/{locale}.js"
   }
 }

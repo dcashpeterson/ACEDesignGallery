@@ -75,3 +75,28 @@ export interface IServiceHealthIssue {
   lastModifiedDateTime: string;
 }
 
+export interface ISiteActivityStat {
+  label: string;
+  date: string;
+  viewCount: number;
+  visitorCount: number;
+}
+
+export interface ISiteAnalyticsSummary {
+  last7Views: number;
+  last7Visitors: number;
+  allTimeViews: number;
+  allTimeVisitors: number;
+  dailyStats: ISiteActivityStat[];
+}
+
+export class SiteAnalyticsSummary implements ISiteAnalyticsSummary{
+  constructor(
+    public last7Views: number = 0,
+    public last7Visitors: number = 0,
+    public allTimeViews: number = 0,
+    public allTimeVisitors: number = 0,
+    public dailyStats: ISiteActivityStat[] = []
+  ) { }
+}
+

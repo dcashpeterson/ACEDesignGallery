@@ -4,8 +4,7 @@ import { IServiceHealth } from '../../../common/models/models';
 import {
   IITSystemStatusCardAdaptiveCardExtensionProps,
   IITSystemStatusCardAdaptiveCardExtensionState,
-  ISSUE_VIEW_REGISTRY_ID,
-  NEW_VIEW_REGISTRY_ID
+  ISSUE_VIEW_REGISTRY_ID
 } from '../ITSystemStatusCardAdaptiveCardExtension';
 
 export interface IQuickViewData {

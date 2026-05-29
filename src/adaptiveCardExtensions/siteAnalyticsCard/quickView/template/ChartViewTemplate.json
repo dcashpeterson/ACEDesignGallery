@@ -1,0 +1,96 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "${title}",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Last 7 days",
+      "size": "Small",
+      "color": "Accent",
+      "spacing": "None"
+    },
+    {
+      "type": "Image",
+      "url": "${chartUrl}",
+      "width": "380px",
+      "height": "140px",
+      "spacing": "Small",
+      "altText": "7-day site activity bar chart",
+      "$when": "${chartUrl != ''}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "No activity data available for the selected site.",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small",
+      "$when": "${chartUrl == ''}"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${totalViews}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Accent"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Page views",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${uniqueVisitors}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Accent"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Unique visitors",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "View details",
+          "data": {
+            "id": "details"
+          }
+        }
+      ]
+    }
+  ]
+}

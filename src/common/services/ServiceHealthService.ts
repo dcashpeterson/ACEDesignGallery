@@ -27,7 +27,7 @@ export class ServiceHealthService {
   }
 
   public async getServices(): Promise<IServiceHealth[]> {
-    let retVal: IServiceHealth[] = [];
+    const retVal: IServiceHealth[] = [];
     try {
       const overviews = await this._graph.admin.serviceAnnouncements.healthOverviews();
 

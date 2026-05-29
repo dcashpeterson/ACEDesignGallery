@@ -27,7 +27,7 @@ export class LunchMenuService {
   }
 
   public async getLocations(): Promise<ILocation[]> {
-    let retVal: ILocation[] = [];
+    const retVal: ILocation[] = [];
     try {
       const items = await this._sp.web.lists.getByTitle(Lists.DEMOLUNCHLIST).items.select('ID','Location', 'Image')();
       items.forEach(item => {
@@ -44,7 +44,7 @@ export class LunchMenuService {
   }
 
   public async getAllItems(): Promise<ILunchMenuItem[]> {
-    let retVal: ILunchMenuItem[] = [];
+    const retVal: ILunchMenuItem[] = [];
     try {
       const menuItems = await this._sp.web.lists.getByTitle(Lists.DEMOLUNCHLIST).items.select('Id', 'Title', 'Location', 'Description', 'Category', 'Price').top(500)();
       

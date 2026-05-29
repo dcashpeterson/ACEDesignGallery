@@ -37,6 +37,10 @@
       {
         "resource": "Microsoft Graph",
         "scope": "ServiceHealth.Read.All"
+      },
+      {
+        "resource": "Microsoft Graph",
+        "scope": "Sites.Read.All"
       }
     ]
   },

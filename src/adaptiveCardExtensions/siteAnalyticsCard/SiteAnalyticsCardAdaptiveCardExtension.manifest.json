@@ -1,0 +1,28 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/adaptive-card-extension-manifest.schema.json",
+  "id": "c2a4f8e1-7b3d-4a9c-8f2e-1d5b6c3a0e74",
+  "alias": "SiteAnalyticsCardAdaptiveCardExtension",
+  "componentType": "AdaptiveCardExtension",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
+  "manifestVersion": 2,
+
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+  "supportedHosts": ["Dashboard"],
+  "preconfiguredEntries": [{
+    "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c",
+    "group": { "default": "Dashboard" },
+    "title": { "default": "Site Analytics" },
+    "description": { "default": "View site activity metrics and trends" },
+    "officeFabricIconFontName": "BarChartVertical",
+    "properties": {
+      "title": "Site Analytics",
+      "siteUrl": ""
+    },
+    "cardSize": "Medium"
+  }]
+}

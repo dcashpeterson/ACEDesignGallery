@@ -1,0 +1,79 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "Analytics Details",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${siteName}",
+      "size": "Small",
+      "isSubtle": true,
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Last 7 days",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "FactSet",
+      "spacing": "Small",
+      "facts": [
+        {
+          "title": "Page views",
+          "value": "${last7Views}"
+        },
+        {
+          "title": "Unique visitors",
+          "value": "${last7Visitors}"
+        },
+        {
+          "title": "Avg. daily views",
+          "value": "${avgDailyViews}"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "All time",
+      "weight": "Bolder",
+      "spacing": "Medium",
+      "separator": true
+    },
+    {
+      "type": "FactSet",
+      "spacing": "Small",
+      "facts": [
+        {
+          "title": "Total views",
+          "value": "${allTimeViews}"
+        },
+        {
+          "title": "Total visitors",
+          "value": "${allTimeVisitors}"
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "← Back to chart",
+          "data": {
+            "id": "back"
+          }
+        }
+      ]
+    }
+  ]
+}

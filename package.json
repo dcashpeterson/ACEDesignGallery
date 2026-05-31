@@ -15,8 +15,9 @@
     "@microsoft/sp-adaptive-card-extension-base": "1.23.0",
     "@microsoft/sp-core-library": "1.23.0",
     "@microsoft/sp-property-pane": "1.23.0",
-    "@pnp/sp": "^4.20.0",
     "@pnp/graph": "^4.20.0",
+    "@pnp/sp": "^4.20.0",
+    "chart.js": "^4.5.1",
     "tslib": "2.3.1"
   },
   "devDependencies": {

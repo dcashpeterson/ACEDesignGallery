@@ -19,5 +19,7 @@ export enum statusType {
 };
 
 export enum Lists {
-  DEMOLUNCHLIST = "LunchMenu"
+  DEMOLUNCHLIST = "LunchMenu",
+  SUPPORTTICKETS = "SupportTickets",
+  SALESDATA = "SalesData"
 }

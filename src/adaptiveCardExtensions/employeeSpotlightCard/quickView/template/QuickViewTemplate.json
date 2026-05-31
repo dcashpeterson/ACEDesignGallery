@@ -1,0 +1,115 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "Image",
+      "url": "${spotlight.employeeImageUrl}",
+      "altText": "${spotlight.employeeName}",
+      "size": "Large",
+      "style": "Person",
+      "horizontalAlignment": "Center"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${spotlight.employeeName}",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true,
+      "horizontalAlignment": "Center"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${spotlight.spotlightType}",
+      "color": "Accent",
+      "size": "Small",
+      "wrap": true,
+      "horizontalAlignment": "Center"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${spotlight.spotlightDateFormatted}",
+      "isSubtle": true,
+      "size": "Small",
+      "wrap": true,
+      "horizontalAlignment": "Center"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${spotlight.fullArticle}",
+      "wrap": true,
+      "separator": true,
+      "spacing": "Medium"
+    },
+    {
+      "type": "ActionSet",
+      "separator": true,
+      "spacing": "Medium",
+      "$when": "${hasPageUrl}",
+      "actions": [
+        {
+          "type": "Action.OpenUrl",
+          "title": "Read full article",
+          "url": "${spotlight.pageUrl}"
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "$when": "${showNavigation}",
+      "separator": true,
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "$when": "${hasPrev}",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "◀ Prev",
+                  "data": { "id": "prev" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${currentPosition}",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "$when": "${hasNext}",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "Next ▶",
+                  "data": { "id": "next" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

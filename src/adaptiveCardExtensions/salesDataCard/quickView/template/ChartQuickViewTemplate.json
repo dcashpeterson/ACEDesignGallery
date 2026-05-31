@@ -1,0 +1,158 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "${title}",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Time range",
+      "size": "Small",
+      "weight": "Bolder",
+      "spacing": "Medium"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Small",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "7 days",
+          "data": { "id": "range", "value": "7" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "30 days",
+          "data": { "id": "range", "value": "30" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "90 days",
+          "data": { "id": "range", "value": "90" }
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Group by",
+      "size": "Small",
+      "weight": "Bolder",
+      "spacing": "Small"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Small",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "By Person",
+          "data": { "id": "groupBy", "value": "salesperson" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "By Region",
+          "data": { "id": "groupBy", "value": "region" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "By Product",
+          "data": { "id": "groupBy", "value": "product" }
+        }
+      ]
+    },
+    {
+      "type": "Image",
+      "url": "${chartDataUrl}",
+      "width": "380px",
+      "height": "200px",
+      "spacing": "Small",
+      "altText": "Sales performance line chart",
+      "$when": "${chartDataUrl != ''}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Loading chart…",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Medium",
+      "$when": "${chartDataUrl == '' && isLoading}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "No sales data available for the selected period.",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Medium",
+      "$when": "${chartDataUrl == '' && isLoading == false}"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${totalSales}",
+              "weight": "Bolder",
+              "size": "Large",
+              "color": "Accent"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Total Sales",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${topPerformerName}",
+              "weight": "Bolder",
+              "size": "Small",
+              "wrap": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "${topPerformerTotal}",
+              "size": "Large",
+              "color": "Accent",
+              "spacing": "None"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Top Performer",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "View detail",
+          "data": { "id": "details" }
+        }
+      ]
+    }
+  ]
+}

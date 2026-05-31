@@ -100,3 +100,78 @@ export class SiteAnalyticsSummary implements ISiteAnalyticsSummary{
   ) { }
 }
 
+export interface ISupportTicket {
+  id: string;
+  title: string;
+  status: string;
+  priority: string;
+  assignedTo: string;
+  description: string;
+  submittedDate: string;
+}
+
+export interface ITicketStatusCounts {
+  open: number;
+  inProgress: number;
+  resolved: number;
+  escalated: number;
+}
+
+export const SupportTicketFields: IFieldList[] = [
+  { internalName: "Status", displayName: "Status", props: { FieldTypeKind: 6, choices: ["Open", "In Progress", "Resolved", "Escalated"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "Priority", displayName: "Priority", props: { FieldTypeKind: 6, choices: ["Low", "Medium", "High", "Critical"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "AssignedTo", displayName: "Assigned To", props: { FieldTypeKind: 20 } },
+  { internalName: "Description", displayName: "Description", props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "SubmittedDate", displayName: "Submitted Date", props: { FieldTypeKind: 4 } }
+];
+
+export interface ISalesDataItem {
+  id: string;
+  title: string;
+  saleDate: string;
+  amount: number;
+  salesperson: string;
+  region: string;
+  product: string;
+}
+
+export interface ISalesDataPoint {
+  date: Date;
+  amount: number;
+}
+
+export interface ISalesDataSeries {
+  name: string;
+  color: string;
+  dataPoints: ISalesDataPoint[];
+  total: number;
+}
+
+export const SalesDataFields: IFieldList[] = [
+  { internalName: "SaleDate",    displayName: "Sale Date",   props: { FieldTypeKind: 4 } },
+  { internalName: "Amount",      displayName: "Amount",      props: { FieldTypeKind: 9 } },
+  { internalName: "Salesperson", displayName: "Salesperson", props: { FieldTypeKind: 2 } },
+  { internalName: "Region",      displayName: "Region",      props: { FieldTypeKind: 6, choices: ["North", "South", "East", "West", "Central"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "Product",     displayName: "Product",     props: { FieldTypeKind: 6, choices: ["Software", "Hardware", "Services", "Support", "Training"], editFormat: ChoiceFieldFormatType.Dropdown } }
+];
+
+export interface IEmployeeSpotlight {
+  id: string;
+  employeeName: string;
+  spotlightType: string;
+  description: string;
+  employeeImageUrl: string;
+  spotlightDate: string;
+  spotlightDateFormatted: string;
+  fullArticle: string;
+  pageUrl: string;
+}
+
+export const EmployeeSpotlightFields: IFieldList[] = [
+  { internalName: "SpotlightEmployeeName",  displayName: "Employee Name",   props: { FieldTypeKind: 2 } },
+  { internalName: "SpotlightType",          displayName: "Spotlight Type",  props: { FieldTypeKind: 6, choices: ["Promotion", "Retirement", "New Baby", "Award", "Work Anniversary"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "SpotlightEmployeeImage", displayName: "Employee Image",  props: { FieldTypeKind: 11 } },
+  { internalName: "SpotlightDate",          displayName: "Spotlight Date",  props: { FieldTypeKind: 4 } },
+  { internalName: "SpotlightArticle",       displayName: "Article",         props: { FieldTypeKind: 3, richText: true } }
+];
+

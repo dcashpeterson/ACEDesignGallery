@@ -1,0 +1,136 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "${title}",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${total} total tickets",
+      "size": "Small",
+      "color": "Accent",
+      "spacing": "None"
+    },
+    {
+      "type": "Image",
+      "url": "${chartUrl}",
+      "width": "320px",
+      "height": "180px",
+      "spacing": "Small",
+      "altText": "Support ticket status donut chart",
+      "$when": "${chartUrl != ''}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "No ticket data available.",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small",
+      "$when": "${chartUrl == ''}"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${open}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Accent"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Open",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${inProgress}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Warning"
+            },
+            {
+              "type": "TextBlock",
+              "text": "In Progress",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${resolved}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Good"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Resolved",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${escalated}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Attention"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Escalated",
+              "size": "Small",
+              "isSubtle": true,
+              "spacing": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "View All Tickets",
+          "data": {
+            "id": "viewTickets"
+          }
+        }
+      ]
+    }
+  ]
+}

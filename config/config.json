@@ -25,12 +25,39 @@
           "manifest": "./src/adaptiveCardExtensions/siteAnalyticsCard/SiteAnalyticsCardAdaptiveCardExtension.manifest.json"
         }
       ]
+    },
+    "support-tickets-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/supportTicketsCard/SupportTicketsCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/supportTicketsCard/SupportTicketsCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
+    "sales-data-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/salesDataCard/SalesDataCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/salesDataCard/SalesDataCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
+    "employee-spotlight-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/employeeSpotlightCard/EmployeeSpotlightCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/employeeSpotlightCard/EmployeeSpotlightCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
   "localizedResources": {
     "ITSystemStatusCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/itSystemStatusCard/loc/{locale}.js",
     "LunchMenuCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/lunchMenuCard/loc/{locale}.js",
-    "SiteAnalyticsCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/siteAnalyticsCard/loc/{locale}.js"
+    "SiteAnalyticsCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/siteAnalyticsCard/loc/{locale}.js",
+    "SupportTicketsCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/supportTicketsCard/loc/{locale}.js",
+    "SalesDataCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/salesDataCard/loc/{locale}.js",
+    "EmployeeSpotlightCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/employeeSpotlightCard/loc/{locale}.js"
   }
 }

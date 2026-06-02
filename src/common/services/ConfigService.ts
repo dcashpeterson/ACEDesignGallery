@@ -34,8 +34,8 @@ export class ConfigService {
       if (list.created) {
         await this._sp.web.lists.getByTitle(listName).fields.getByTitle("Title").update({ Hidden: true });
         await this._configSiteColumns(listFields, listName);
+        retVal = true;
       }
-      retVal = true;
     } catch (err) {
       console.error(`${this.LOG_SOURCE}:(_configList) - ${err}`);
     }

@@ -1,0 +1,172 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "${title}",
+      "size": "Medium"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${usedDays}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Accent",
+              "horizontalAlignment": "Center"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Days Used",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Center",
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${availableDays}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "color": "Good",
+              "horizontalAlignment": "Center"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Days Available",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Center",
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${totalDays}",
+              "weight": "Bolder",
+              "size": "ExtraLarge",
+              "horizontalAlignment": "Center"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Total Days",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Center",
+              "spacing": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Time Off Requests",
+      "weight": "Bolder",
+      "size": "Small",
+      "spacing": "Medium",
+      "separator": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "No time off requests found.",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small",
+      "$when": "${count(requests) == 0}"
+    },
+    {
+      "type": "Container",
+      "$data": "${requests}",
+      "spacing": "Small",
+      "separator": true,
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${title}",
+                  "weight": "Bolder",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${startDate} – ${endDate} (${days} day${if(days == 1, '', 's')})",
+                  "size": "Small",
+                  "isSubtle": true,
+                  "spacing": "None"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Good",
+                  "$when": "${status == 'Approved'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Warning",
+                  "$when": "${status == 'Waiting for Approval'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Accent",
+                  "$when": "${status == 'Submitted'}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "New Request",
+          "style": "positive",
+          "data": { "id": "newRequest" }
+        }
+      ]
+    }
+  ]
+}

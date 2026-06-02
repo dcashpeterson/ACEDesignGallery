@@ -1,0 +1,109 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${announcement.title}",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Small",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${announcement.category}",
+              "color": "Accent",
+              "size": "Small",
+              "isSubtle": false
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${announcement.publishedDateFormatted}",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "${announcement.body}",
+      "wrap": true,
+      "separator": true,
+      "spacing": "Medium"
+    },
+    {
+      "type": "ColumnSet",
+      "$when": "${showNavigation}",
+      "separator": true,
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "$when": "${hasPrev}",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "◀ Prev",
+                  "data": { "id": "prev" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${currentPosition}",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Center"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "$when": "${hasNext}",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "Next ▶",
+                  "data": { "id": "next" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

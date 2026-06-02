@@ -1,0 +1,51 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "✅",
+      "size": "ExtraLarge",
+      "horizontalAlignment": "Center",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Request Submitted!",
+      "weight": "Bolder",
+      "size": "Large",
+      "horizontalAlignment": "Center",
+      "spacing": "Small"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Your time off request has been submitted and is pending approval.",
+      "wrap": true,
+      "horizontalAlignment": "Center",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small"
+    },
+    {
+      "type": "TextBlock",
+      "text": "You now have ${requestCount} request${if(requestCount == 1, '', 's')} on record.",
+      "wrap": true,
+      "horizontalAlignment": "Center",
+      "size": "Small",
+      "spacing": "Small"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Large",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Close",
+          "style": "positive",
+          "data": { "id": "close" }
+        }
+      ]
+    }
+  ]
+}

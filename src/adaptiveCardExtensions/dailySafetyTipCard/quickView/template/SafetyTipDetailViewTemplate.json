@@ -1,0 +1,66 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${tip.title}",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Small",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "${tip.category}",
+              "color": "Accent",
+              "size": "Small",
+              "isSubtle": false
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Today's Safety Tip",
+              "isSubtle": true,
+              "size": "Small",
+              "horizontalAlignment": "Right"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "${tip.guidance}",
+      "wrap": true,
+      "separator": true,
+      "spacing": "Medium"
+    },
+    {
+      "type": "ActionSet",
+      "$when": "${hasPolicyLink}",
+      "separator": true,
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.OpenUrl",
+          "title": "${tip.policyTitle}",
+          "url": "${tip.policyUrl}"
+        }
+      ]
+    }
+  ]
+}

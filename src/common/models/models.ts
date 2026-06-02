@@ -175,3 +175,60 @@ export const EmployeeSpotlightFields: IFieldList[] = [
   { internalName: "SpotlightArticle",       displayName: "Article",         props: { FieldTypeKind: 3, richText: true } }
 ];
 
+export interface ICompanyAnnouncement {
+  id: string;
+  title: string;
+  body: string;
+  publishedDate: string;
+  publishedDateFormatted: string;
+  category: string;
+}
+
+export const CompanyAnnouncementsFields: IFieldList[] = [
+  { internalName: "AnnouncementBody", displayName: "Body",           props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "Category",         displayName: "Category",       props: { FieldTypeKind: 6, choices: ["General", "HR", "IT", "Operations", "Leadership"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "PublishedDate",    displayName: "Published Date", props: { FieldTypeKind: 4 } }
+];
+
+export interface ISafetyTip {
+  id: string;
+  title: string;
+  summary: string;
+  guidance: string;
+  category: string;
+  policyUrl: string;
+  policyTitle: string;
+}
+
+export const SafetyTipsFields: IFieldList[] = [
+  { internalName: "Summary",     displayName: "Summary",               props: { FieldTypeKind: 2 } },
+  { internalName: "Guidance",    displayName: "Guidance",              props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "Category",    displayName: "Category",              props: { FieldTypeKind: 6, choices: ["Ergonomics", "Fire Safety", "Chemical Safety", "Emergency Preparedness", "General Safety", "Health & Hygiene"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "PolicyUrl",   displayName: "Policy Document URL",   props: { FieldTypeKind: 11 } },
+  { internalName: "PolicyTitle", displayName: "Policy Document Title", props: { FieldTypeKind: 2 } }
+];
+
+export interface IVacationRequest {
+  id: string;
+  title: string;
+  startDate: string;
+  endDate: string;
+  days: number;
+  status: string;
+  notes: string;
+}
+
+export interface IVacationSummary {
+  used: number;
+  available: number;
+  total: number;
+}
+
+export const VacationRequestFields: IFieldList[] = [
+  { internalName: "StartDate", displayName: "Start Date",       props: { FieldTypeKind: 4 } },
+  { internalName: "EndDate",   displayName: "End Date",         props: { FieldTypeKind: 4 } },
+  { internalName: "Days",      displayName: "Number of Days",   props: { FieldTypeKind: 9 } },
+  { internalName: "Status",    displayName: "Status",           props: { FieldTypeKind: 6, choices: ["Submitted", "Waiting for Approval", "Approved"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "Notes",     displayName: "Notes",            props: { FieldTypeKind: 3, richText: false } }
+];
+

@@ -1,0 +1,72 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "Submit New Ticket",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Submitting your ticket…",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small",
+      "$when": "${isSubmitting}"
+    },
+    {
+      "type": "Input.Text",
+      "id": "ticketTitle",
+      "label": "Title",
+      "placeholder": "Briefly describe your issue",
+      "isRequired": true,
+      "errorMessage": "Title is required",
+      "spacing": "Medium",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "ticketPriority",
+      "label": "Priority",
+      "value": "Medium",
+      "spacing": "Small",
+      "$when": "${!isSubmitting}",
+      "choices": [
+        { "title": "Low", "value": "Low" },
+        { "title": "Medium", "value": "Medium" },
+        { "title": "High", "value": "High" },
+        { "title": "Critical", "value": "Critical" }
+      ]
+    },
+    {
+      "type": "Input.Text",
+      "id": "ticketDescription",
+      "label": "Description",
+      "placeholder": "Provide additional details about your issue",
+      "isMultiline": true,
+      "spacing": "Small",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "$when": "${!isSubmitting}",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Submit",
+          "style": "positive",
+          "data": { "id": "submit" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "Cancel",
+          "data": { "id": "cancel" }
+        }
+      ]
+    }
+  ]
+}

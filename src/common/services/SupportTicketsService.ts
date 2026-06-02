@@ -59,6 +59,50 @@ export class SupportTicketsService {
     };
   }
 
+  public async getMyTickets(authorId: number): Promise<ISupportTicket[]> {
+    const retVal: ISupportTicket[] = [];
+    try {
+      const items = await this._sp.web.lists
+        .getByTitle(Lists.SUPPORTTICKETS)
+        .items.filter(`AuthorId eq ${authorId}`)
+        .select('Id', 'Title', 'Status', 'Priority', 'Assigned_x0020_To/Title', 'Description', 'Submitted_x0020_Date')
+        .expand('Assigned_x0020_To')
+        .top(500)();
+
+      items.forEach(item => {
+        retVal.push({
+          id: String(item.Id),
+          title: item.Title ?? '',
+          status: item.Status ?? 'Open',
+          priority: item.Priority ?? 'Medium',
+          assignedTo: item.Assigned_x0020_To?.Title ?? '',
+          description: item.Description ?? '',
+          submittedDate: item.Submitted_x0020_Date ?? ''
+        });
+      });
+    } catch (err) {
+      console.error(`${this.LOG_SOURCE} (getMyTickets) - ${err}`);
+    }
+    return retVal;
+  }
+
+  public async createTicket(title: string, priority: string, description: string): Promise<void> {
+    try {
+      await this._sp.web.lists
+        .getByTitle(Lists.SUPPORTTICKETS)
+        .items.add({
+          Title: title,
+          Status: 'Open',
+          Priority: priority,
+          Description: description,
+          Submitted_x0020_Date: new Date().toISOString()
+        });
+    } catch (err) {
+      console.error(`${this.LOG_SOURCE} (createTicket) - ${err}`);
+      throw err;
+    }
+  }
+
   public generateDonutChartUrl(counts: ITicketStatusCounts): string {
     const total = counts.open + counts.inProgress + counts.resolved + counts.escalated;
     if (total === 0) return '';

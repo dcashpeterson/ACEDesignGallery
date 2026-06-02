@@ -1,0 +1,87 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "weight": "Bolder",
+      "text": "New Time Off Request",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Submitting your request…",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small",
+      "$when": "${isSubmitting}"
+    },
+    {
+      "type": "Input.Text",
+      "id": "requestTitle",
+      "label": "Request Title",
+      "placeholder": "e.g. Summer vacation",
+      "isRequired": true,
+      "errorMessage": "Title is required",
+      "spacing": "Medium",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "Input.Date",
+      "id": "startDate",
+      "label": "Start Date",
+      "isRequired": true,
+      "errorMessage": "Start date is required",
+      "spacing": "Small",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "Input.Date",
+      "id": "endDate",
+      "label": "End Date",
+      "isRequired": true,
+      "errorMessage": "End date is required",
+      "spacing": "Small",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "Input.Number",
+      "id": "requestDays",
+      "label": "Number of Days",
+      "placeholder": "1",
+      "min": 0.5,
+      "isRequired": true,
+      "errorMessage": "Number of days is required",
+      "spacing": "Small",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "Input.Text",
+      "id": "requestNotes",
+      "label": "Notes (optional)",
+      "placeholder": "Any additional details…",
+      "isMultiline": true,
+      "spacing": "Small",
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "$when": "${!isSubmitting}",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Submit Request",
+          "style": "positive",
+          "data": { "id": "submitRequest" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "Cancel",
+          "data": { "id": "cancel" }
+        }
+      ]
+    }
+  ]
+}

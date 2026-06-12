@@ -1,0 +1,24 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/adaptive-card-extension-manifest.schema.json",
+  "id": "f3a85b2c-7d41-4e9f-b0c3-1a2e8d6f4c07",
+  "alias": "InventorySearchCardAdaptiveCardExtension",
+  "componentType": "AdaptiveCardExtension",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "supportedHosts": ["Dashboard"],
+  "preconfiguredEntries": [
+    {
+      "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c",
+      "group": { "default": "Dashboard" },
+      "title": { "default": "Inventory Search" },
+      "description": { "default": "Search and browse inventory items" },
+      "officeFabricIconFontName": "Search",
+      "properties": {
+        "title": "Inventory Search",
+        "listSiteUrl": ""
+      },
+      "cardSize": "Medium"
+    }
+  ]
+}

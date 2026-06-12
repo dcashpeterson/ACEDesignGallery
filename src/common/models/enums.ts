@@ -24,5 +24,7 @@ export enum Lists {
   SALESDATA = "SalesData",
   COMPANYANNOUNCEMENTS = "CompanyAnnouncements",
   SAFETYTIPS = "SafetyTips",
-  VACATIONREQUESTS = "VacationRequests"
+  VACATIONREQUESTS = "VacationRequests",
+  INVENTORY = "InventoryItems",
+  WEATHERLOCATIONS = "WeatherLocations"
 }

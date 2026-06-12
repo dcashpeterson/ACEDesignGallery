@@ -1,0 +1,123 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "◀",
+                  "data": { "id": "back" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "Bolder",
+              "text": "${if(hasQuery, concat('Results for \"', query, '\"'), 'All Inventory')}",
+              "size": "Medium",
+              "wrap": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "No items match your search.",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Medium",
+      "$when": "${!hasResults}"
+    },
+    {
+      "type": "Container",
+      "$data": "${results}",
+      "spacing": "Small",
+      "separator": true,
+      "selectAction": {
+        "type": "Action.Submit",
+        "data": {
+          "id": "selectItem",
+          "itemId": "${id}"
+        }
+      },
+      "items": [
+        {
+          "type": "ColumnSet",
+          "spacing": "Small",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${title}",
+                  "weight": "Bolder",
+                  "wrap": true,
+                  "spacing": "None"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "SKU: ${sku}",
+                  "size": "Small",
+                  "isSubtle": true,
+                  "spacing": "None"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${category}",
+                  "size": "Small",
+                  "color": "Accent",
+                  "horizontalAlignment": "Right"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "Qty: ${quantity}",
+                  "size": "Small",
+                  "color": "Good",
+                  "horizontalAlignment": "Right",
+                  "spacing": "None",
+                  "$when": "${quantity >= 10}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "Low: ${quantity}",
+                  "size": "Small",
+                  "color": "Warning",
+                  "horizontalAlignment": "Right",
+                  "spacing": "None",
+                  "$when": "${quantity < 10}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

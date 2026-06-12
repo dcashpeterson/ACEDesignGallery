@@ -187,7 +187,7 @@ export class EmployeeSpotlightService {
         employeeImageUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
         spotlightDate: '2026-05-01T00:00:00Z',
         spotlightDateFormatted: 'May 1, 2026',
-        fullArticle: 'We are thrilled to announce that Sarah Mitchell has been promoted to Senior Engineering Manager on the Platform Infrastructure team. Over the past four years, Sarah has led three major cloud migrations, mentored over a dozen junior engineers, and consistently delivered complex projects ahead of schedule. Her collaborative leadership style and technical depth make her an invaluable asset to our organization. Please join us in congratulating Sarah on this well-deserved achievement!',
+        fullArticle: 'We are thrilled to announce that Sarah Mitchell has been promoted to Senior Engineering Manager on the Platform Infrastructure team. Over the past four years, Sarah has led three major cloud migrations, mentored over a dozen junior engineers, and consistently delivered complex projects ahead of schedule. Please join us in congratulating Sarah on this well-deserved achievement!',
         pageUrl: '#'
       },
       {

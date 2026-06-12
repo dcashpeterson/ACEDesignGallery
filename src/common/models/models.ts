@@ -232,3 +232,45 @@ export const VacationRequestFields: IFieldList[] = [
   { internalName: "Notes",     displayName: "Notes",            props: { FieldTypeKind: 3, richText: false } }
 ];
 
+export interface IInventoryItem {
+  id: string;
+  title: string;
+  sku: string;
+  category: string;
+  quantity: number;
+  location: string;
+  description: string;
+  unitPrice: number;
+}
+
+export const InventoryItemFields: IFieldList[] = [
+  { internalName: "SKU",         displayName: "SKU",         props: { FieldTypeKind: 2 } },
+  { internalName: "Category",    displayName: "Category",    props: { FieldTypeKind: 6, choices: ["Electronics", "Tools", "Office Supplies", "Hardware", "Safety Equipment"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "Quantity",    displayName: "Quantity",    props: { FieldTypeKind: 9, minValue: 0 } },
+  { internalName: "Location",    displayName: "Location",    props: { FieldTypeKind: 2 } },
+  { internalName: "Description", displayName: "Description", props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "UnitPrice",   displayName: "Unit Price",  props: { FieldTypeKind: 10, minValue: 0, localID: 1033 } }
+];
+
+export interface IWeatherLocation {
+  id: string;
+  name: string;
+  latitude: number;
+  longitude: number;
+}
+
+export interface IWeatherData {
+  temperature: number;
+  weatherCode: number;
+  windspeed: number;
+  isDay: boolean;
+  description: string;
+  iconUrl: string;
+}
+
+export const WeatherLocationFields: IFieldList[] = [
+  { internalName: "LocationName", displayName: "Location Name", props: { FieldTypeKind: 2 } },
+  { internalName: "Latitude",     displayName: "Latitude",      props: { FieldTypeKind: 9 } },
+  { internalName: "Longitude",    displayName: "Longitude",     props: { FieldTypeKind: 9 } }
+];
+

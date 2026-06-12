@@ -81,6 +81,22 @@
           "manifest": "./src/adaptiveCardExtensions/vacationDaysCard/VacationDaysCardAdaptiveCardExtension.manifest.json"
         }
       ]
+    },
+    "inventory-search-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/inventorySearchCard/InventorySearchCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/inventorySearchCard/InventorySearchCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
+    "weather-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/weatherCard/WeatherCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/weatherCard/WeatherCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
     }
   },
   "externals": {},
@@ -94,6 +110,8 @@
     "MyTicketsCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/myTicketsCard/loc/{locale}.js",
     "CompanyAnnouncementsCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/companyAnnouncementsCard/loc/{locale}.js",
     "DailySafetyTipCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/dailySafetyTipCard/loc/{locale}.js",
-    "VacationDaysCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/vacationDaysCard/loc/{locale}.js"
+    "VacationDaysCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/vacationDaysCard/loc/{locale}.js",
+    "InventorySearchCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/inventorySearchCard/loc/{locale}.js",
+    "WeatherCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/weatherCard/loc/{locale}.js"
   }
 }

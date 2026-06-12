@@ -1,0 +1,174 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "◀",
+                  "data": { "id": "back" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "weight": "Bolder",
+              "text": "Item Details",
+              "size": "Medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "${title}",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true,
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "⚠️ Low Stock",
+      "color": "Warning",
+      "size": "Small",
+      "spacing": "None",
+      "$when": "${isLowStock}"
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Small",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            { "type": "TextBlock", "text": "SKU:", "weight": "Bolder", "size": "Small" }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            { "type": "TextBlock", "text": "${sku}", "size": "Small" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "None",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            { "type": "TextBlock", "text": "Category:", "weight": "Bolder", "size": "Small" }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            { "type": "TextBlock", "text": "${category}", "size": "Small", "color": "Accent" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "None",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            { "type": "TextBlock", "text": "Quantity:", "weight": "Bolder", "size": "Small" }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            { "type": "TextBlock", "text": "${string(quantity)}", "size": "Small" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "None",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            { "type": "TextBlock", "text": "Location:", "weight": "Bolder", "size": "Small" }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            { "type": "TextBlock", "text": "${location}", "size": "Small" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "None",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            { "type": "TextBlock", "text": "Unit Price:", "weight": "Bolder", "size": "Small" }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            { "type": "TextBlock", "text": "${unitPrice}", "size": "Small" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Description",
+      "weight": "Bolder",
+      "size": "Small",
+      "spacing": "Medium",
+      "$when": "${description != ''}"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${description}",
+      "size": "Small",
+      "isSubtle": true,
+      "wrap": true,
+      "spacing": "None",
+      "$when": "${description != ''}"
+    }
+  ]
+}

@@ -9,7 +9,7 @@ define([], function() {
     "PrimaryText": "Lunch Menu",
     "Description": "View today's lunch menu by location",
     "SelectLocation": "Select a location to view today's menu",
-    "ChooseLocation": "Choose Location",
+    "ChooseLocation": "View Menu",
     "ViewMenu": "View Menu",
     "NoItemsMessage": "No menu items available for this location.",
     "LunchMenuDescription": "List with lunch options by location"

@@ -127,6 +127,45 @@ export class SalesDataService {
     return series;
   }
 
+  public buildMonthlySeriesByRegion(salesDataItems: ISalesDataItem[], topN: number = 3): ISalesDataSeries[] {
+    // Loop through items and add months to array using YYYY-MM format
+    const regionMap = new Map<string, Map<string, number>>();
+    for (const item of salesDataItems) {
+      const region = item.region || 'Unknown';
+      if (!regionMap.has(region)) regionMap.set(region, new Map());
+
+      const date = new Date(item.saleDate);
+
+      //Create string for the chart's x-axis in the format of "YYYY-MM"
+      const month = `${date.getFullYear()}-${pad2(date.getMonth() + 1)}`;
+
+      const monthMap = regionMap.get(region)!;
+      monthMap.set(month, (monthMap.get(month) ?? 0) + item.amount);
+    }
+    //Now we have a list of regions with their monthly totals
+
+    // Sum each region's monthly totals, sort descending, keep top N
+    const topRegions = Array.from(regionMap.entries())
+      .map(([region, monthMap]) => ({
+        region,
+        monthMap,
+        total: Array.from(monthMap.values()).reduce((sum, n) => sum + n, 0)
+      }))
+      .sort((a, b) => b.total - a.total)
+      .slice(0, topN);
+
+    // Convert each region into a data series with chronologically sorted data points
+    return topRegions.map(({ region, monthMap, total }, idx) => {
+      const dataPoints: ISalesDataPoint[] = Array.from(monthMap.entries())
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([key, amount]) => {
+          const [year, month] = key.split('-').map(Number);
+          return { date: new Date(year, month - 1, 1), amount };
+        });
+      return { name: region, color: SERIES_COLORS[idx % SERIES_COLORS.length], dataPoints, total };
+    });
+  }
+
   private _bucketKey(date: Date, daysBack: number): string {
     if (daysBack <= 30) {
       return `${date.getFullYear()}-${pad2(date.getMonth() + 1)}-${pad2(date.getDate())}`;

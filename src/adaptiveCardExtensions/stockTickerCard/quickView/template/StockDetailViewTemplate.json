@@ -1,0 +1,97 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${symbol}",
+      "weight": "Bolder",
+      "size": "ExtraLarge"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${priceDisplay}",
+      "size": "Large",
+      "spacing": "None"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${changeDisplay}",
+      "color": "${changeColor}",
+      "spacing": "None",
+      "wrap": true
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Medium",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Open",
+              "weight": "Bolder",
+              "size": "Small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${open}",
+              "spacing": "None"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Prev Close",
+              "weight": "Bolder",
+              "size": "Small",
+              "spacing": "Small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${previousClose}",
+              "spacing": "None"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "High",
+              "weight": "Bolder",
+              "size": "Small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${high}",
+              "spacing": "None"
+            },
+            {
+              "type": "TextBlock",
+              "text": "Low",
+              "weight": "Bolder",
+              "size": "Small",
+              "spacing": "Small"
+            },
+            {
+              "type": "TextBlock",
+              "text": "${low}",
+              "spacing": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Updated: ${lastUpdated}",
+      "size": "Small",
+      "isSubtle": true,
+      "spacing": "Medium"
+    }
+  ]
+}

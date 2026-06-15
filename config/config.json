@@ -97,7 +97,31 @@
           "manifest": "./src/adaptiveCardExtensions/weatherCard/WeatherCardAdaptiveCardExtension.manifest.json"
         }
       ]
-    }
+    },
+    "facilities-maintenance-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/facilitiesMaintenanceCard/FacilitiesMaintenanceCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/facilitiesMaintenanceCard/FacilitiesMaintenanceCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
+    "stock-ticker-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/stockTickerCard/StockTickerCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/stockTickerCard/StockTickerCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
+    "sales-bar-chart-card-adaptive-card-extension": {
+      "components": [
+        {
+          "entrypoint": "./lib/adaptiveCardExtensions/salesBarChartCard/SalesBarChartCardAdaptiveCardExtension.js",
+          "manifest": "./src/adaptiveCardExtensions/salesBarChartCard/SalesBarChartCardAdaptiveCardExtension.manifest.json"
+        }
+      ]
+    },
   },
   "externals": {},
   "localizedResources": {
@@ -112,6 +136,9 @@
     "DailySafetyTipCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/dailySafetyTipCard/loc/{locale}.js",
     "VacationDaysCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/vacationDaysCard/loc/{locale}.js",
     "InventorySearchCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/inventorySearchCard/loc/{locale}.js",
-    "WeatherCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/weatherCard/loc/{locale}.js"
+    "WeatherCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/weatherCard/loc/{locale}.js",
+    "FacilitiesMaintenanceCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/facilitiesMaintenanceCard/loc/{locale}.js",
+    "StockTickerCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/stockTickerCard/loc/{locale}.js",
+    "SalesBarChartCardAdaptiveCardExtensionStrings": "lib/adaptiveCardExtensions/salesBarChartCard/loc/{locale}.js"
   }
 }

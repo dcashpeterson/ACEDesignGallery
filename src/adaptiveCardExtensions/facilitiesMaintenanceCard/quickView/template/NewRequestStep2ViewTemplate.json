@@ -1,0 +1,68 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "New Maintenance Request",
+      "weight": "Bolder",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Step 2 of 2 — Priority & Details",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "None"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Submitting your request…",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Medium",
+      "$when": "${isSubmitting}"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "requestPriority",
+      "label": "Priority",
+      "value": "Medium",
+      "spacing": "Medium",
+      "$when": "${!isSubmitting}",
+      "choices": [
+        { "title": "Low", "value": "Low" },
+        { "title": "Medium", "value": "Medium" },
+        { "title": "High", "value": "High" },
+        { "title": "Critical", "value": "Critical" }
+      ]
+    },
+    {
+      "type": "Input.Text",
+      "id": "requestDescription",
+      "label": "Description",
+      "placeholder": "Provide additional details about the issue",
+      "isMultiline": true,
+      "$when": "${!isSubmitting}"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "$when": "${!isSubmitting}",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Submit Request",
+          "style": "positive",
+          "data": { "id": "submit" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "← Back",
+          "data": { "id": "back" }
+        }
+      ]
+    }
+  ]
+}

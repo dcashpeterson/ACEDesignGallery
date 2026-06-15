@@ -1,0 +1,70 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "New Maintenance Request",
+      "weight": "Bolder",
+      "size": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Step 1 of 2 — Request Info",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "None"
+    },
+    {
+      "type": "Input.Text",
+      "id": "requestTitle",
+      "label": "Title",
+      "placeholder": "Briefly describe the issue",
+      "isRequired": true,
+      "errorMessage": "Title is required",
+      "spacing": "Medium"
+    },
+    {
+      "type": "Input.ChoiceSet",
+      "id": "requestCategory",
+      "label": "Category",
+      "value": "HVAC",
+      "choices": [
+        { "title": "HVAC", "value": "HVAC" },
+        { "title": "Electrical", "value": "Electrical" },
+        { "title": "Plumbing", "value": "Plumbing" },
+        { "title": "Structural", "value": "Structural" },
+        { "title": "Cleaning", "value": "Cleaning" },
+        { "title": "Safety Hazard", "value": "Safety Hazard" },
+        { "title": "IT/Network", "value": "IT/Network" },
+        { "title": "Other", "value": "Other" }
+      ]
+    },
+    {
+      "type": "Input.Text",
+      "id": "requestLocation",
+      "label": "Location",
+      "placeholder": "e.g. Building 1 - Room 204",
+      "isRequired": true,
+      "errorMessage": "Location is required"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Medium",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Next →",
+          "style": "positive",
+          "data": { "id": "next" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "Cancel",
+          "data": { "id": "cancel" }
+        }
+      ]
+    }
+  ]
+}

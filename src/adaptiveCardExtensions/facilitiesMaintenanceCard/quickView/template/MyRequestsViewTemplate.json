@@ -1,0 +1,181 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "My Requests",
+              "weight": "Bolder",
+              "size": "Medium"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "+ New Request",
+                  "style": "positive",
+                  "data": { "id": "new-request" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ColumnSet",
+      "spacing": "Small",
+      "$when": "${userRole != 'user'}",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "$when": "${userRole == 'maintenance' || userRole == 'manager'}",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "My Queue",
+                  "data": { "id": "my-queue" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "$when": "${userRole == 'manager'}",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "Manager Queue",
+                  "data": { "id": "manager-queue" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "You have not submitted any requests yet.",
+      "isSubtle": true,
+      "size": "Small",
+      "wrap": true,
+      "spacing": "Medium",
+      "$when": "${!hasRequests}"
+    },
+    {
+      "type": "Container",
+      "$data": "${requests}",
+      "$when": "${hasRequests}",
+      "separator": true,
+      "spacing": "Small",
+      "style": "emphasis",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "selectAction": {
+            "type": "Action.Submit",
+            "data": {
+              "id": "select",
+              "requestId": "${id}",
+              "title": "${title}",
+              "status": "${status}",
+              "category": "${category}",
+              "location": "${location}",
+              "priority": "${priority}",
+              "requestedDate": "${requestedDate}",
+              "requestedByName": "${requestedByName}",
+              "maintenanceNotes": "${maintenanceNotes}",
+              "maintenanceUpdatedDate": "${maintenanceUpdatedDate}",
+              "assignedToName": "${assignedToName}",
+              "assignedManagerName": "${assignedManagerName}",
+              "managerNotes": "${managerNotes}",
+              "completedDate": "${completedDate}"
+            }
+          },
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${title}",
+                  "weight": "Bolder",
+                  "size": "Small",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${category} · ${requestedDate}",
+                  "size": "Small",
+                  "isSubtle": true,
+                  "spacing": "None"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Good",
+                  "$when": "${status == 'Completed'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Warning",
+                  "$when": "${status == 'In Progress' || status == 'Resolved - Pending Validation'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Accent",
+                  "$when": "${status == 'New'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${status}",
+                  "size": "Small",
+                  "color": "Default",
+                  "$when": "${status == 'Cancelled'}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

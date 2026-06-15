@@ -1,0 +1,55 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "✅",
+      "size": "ExtraLarge",
+      "horizontalAlignment": "Center",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Request Submitted!",
+      "weight": "Bolder",
+      "size": "Large",
+      "horizontalAlignment": "Center"
+    },
+    {
+      "type": "TextBlock",
+      "text": "Your maintenance request has been submitted. Our facilities team will be in touch shortly.",
+      "wrap": true,
+      "horizontalAlignment": "Center",
+      "isSubtle": true,
+      "size": "Small",
+      "spacing": "Small"
+    },
+    {
+      "type": "TextBlock",
+      "text": "You now have ${requestCount} request${requestCount == 1 ? '' : 's'} on record.",
+      "wrap": true,
+      "horizontalAlignment": "Center",
+      "size": "Small",
+      "spacing": "Small"
+    },
+    {
+      "type": "ActionSet",
+      "spacing": "Large",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "View My Requests",
+          "style": "positive",
+          "data": { "id": "view-requests" }
+        },
+        {
+          "type": "Action.Submit",
+          "title": "Close",
+          "data": { "id": "close" }
+        }
+      ]
+    }
+  ]
+}

@@ -274,3 +274,70 @@ export const WeatherLocationFields: IFieldList[] = [
   { internalName: "Longitude",    displayName: "Longitude",     props: { FieldTypeKind: 9 } }
 ];
 
+export interface IFacilitiesMaintenanceRequest {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  location: string;
+  priority: string;
+  status: string;
+  requestedByName: string;
+  requestedById: number;
+  requestedDate: string;
+  assignedToName: string;
+  assignedToId: number;
+  maintenanceNotes: string;
+  maintenanceUpdatedDate: string;
+  assignedManagerName: string;
+  assignedManagerId: number;
+  managerNotes: string;
+  completedDate: string;
+}
+
+export interface IRequestFormDraft {
+  title: string;
+  category: string;
+  location: string;
+  priority: string;
+  description: string;
+  requestedById: number;
+  requestedByName: string;
+}
+
+// Stock Ticker
+export type StockTimeRange = IStockTickerCardAdaptiveCardExtensionStrings['Range7DShort'] | IStockTickerCardAdaptiveCardExtensionStrings['Range30DShort'] | IStockTickerCardAdaptiveCardExtensionStrings['Range1YShort'];
+
+export interface IStockDataPoint {
+  date: Date;
+  price: number;
+}
+
+export interface IStockQuote {
+  symbol: string;
+  price: number;
+  change: number;
+  changePercent: number;
+  open: number;
+  high: number;
+  low: number;
+  previousClose: number;
+  lastUpdated: Date;
+}
+
+export const FacilitiesMaintenanceFields: IFieldList[] = [
+  { internalName: "Description",            displayName: "Description",              props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "Category",               displayName: "Category",                 props: { FieldTypeKind: 6, choices: ["HVAC", "Electrical", "Plumbing", "Structural", "Cleaning", "Safety Hazard", "IT/Network", "Other"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "FacilityLocation",       displayName: "Location",                 props: { FieldTypeKind: 2 } },
+  { internalName: "Priority",               displayName: "Priority",                 props: { FieldTypeKind: 6, choices: ["Low", "Medium", "High", "Critical"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "RequestStatus",          displayName: "Status",                   props: { FieldTypeKind: 6, choices: ["New", "In Progress", "Resolved - Pending Validation", "Completed", "Cancelled"], editFormat: ChoiceFieldFormatType.Dropdown } },
+  { internalName: "RequestedBy",            displayName: "Requested By",             props: { FieldTypeKind: 20 } },
+  { internalName: "RequestedDate",          displayName: "Requested Date",           props: { FieldTypeKind: 4 } },
+  { internalName: "AssignedMaintenanceTo",  displayName: "Assigned To",              props: { FieldTypeKind: 20 } },
+  { internalName: "MaintenanceNotes",       displayName: "Maintenance Notes",        props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "MaintenanceUpdatedDate", displayName: "Maintenance Updated Date", props: { FieldTypeKind: 4 } },
+  { internalName: "AssignedManager",        displayName: "Assigned Manager",         props: { FieldTypeKind: 20 } },
+  { internalName: "ManagerNotes",           displayName: "Manager Notes",            props: { FieldTypeKind: 3, richText: false } },
+  { internalName: "CompletedDate",          displayName: "Completed Date",           props: { FieldTypeKind: 4 } }
+];
+

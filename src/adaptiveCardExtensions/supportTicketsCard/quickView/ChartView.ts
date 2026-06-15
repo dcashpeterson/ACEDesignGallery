@@ -1,10 +1,6 @@
 import { ISPFxAdaptiveCard, BaseAdaptiveCardQuickView, ISubmitActionArguments } from '@microsoft/sp-adaptive-card-extension-base';
 import template from './template/ChartViewTemplate.json';
-import {
-  ISupportTicketsCardAdaptiveCardExtensionProps,
-  ISupportTicketsCardAdaptiveCardExtensionState,
-  TICKETS_VIEW_REGISTRY_ID
-} from '../SupportTicketsCardAdaptiveCardExtension';
+import {ISupportTicketsCardAdaptiveCardExtensionProps,ISupportTicketsCardAdaptiveCardExtensionState,TICKETS_VIEW_REGISTRY_ID} from '../SupportTicketsCardAdaptiveCardExtension';
 
 export interface IChartViewData {
   title: string;

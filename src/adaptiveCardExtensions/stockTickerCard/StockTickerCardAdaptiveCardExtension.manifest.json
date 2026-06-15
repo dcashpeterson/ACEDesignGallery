@@ -1,0 +1,26 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/adaptive-card-extension-manifest.schema.json",
+  "id": "d5b2838f-894e-443a-81a9-271bd757ec88",
+  "alias": "StockTickerCardAdaptiveCardExtension",
+  "componentType": "AdaptiveCardExtension",
+
+  "version": "*",
+  "manifestVersion": 2,
+
+  "requiresCustomScript": false,
+  "supportedHosts": ["Dashboard"],
+  "preconfiguredEntries": [{
+    "groupId": "bd067b1e-3ad5-4d5d-a5fe-505f07d7f59c",
+    "group": { "default": "Dashboard" },
+    "title": { "default": "Stock Ticker" },
+    "description": { "default": "View real-time stock price and historical chart for a configurable symbol" },
+    "officeFabricIconFontName": "LineChart",
+    "properties": {
+      "title": "Stock Ticker",
+      "stockSymbol": "AAPL",
+      "apiKey": "",
+      "refreshIntervalMinutes": 15
+    },
+    "cardSize": "Medium"
+  }]
+}

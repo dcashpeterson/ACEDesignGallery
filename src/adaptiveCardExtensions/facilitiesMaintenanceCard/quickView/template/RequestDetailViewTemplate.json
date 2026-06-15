@@ -1,0 +1,131 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "◀",
+                  "data": { "id": "back" }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "stretch",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "Request Details",
+              "weight": "Bolder",
+              "size": "Medium"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "${title}",
+      "weight": "Bolder",
+      "size": "Large",
+      "wrap": true,
+      "spacing": "Medium"
+    },
+    {
+      "type": "FactSet",
+      "spacing": "Small",
+      "facts": [
+        { "title": "Status", "value": "${status}" },
+        { "title": "Category", "value": "${category}" },
+        { "title": "Location", "value": "${location}" },
+        { "title": "Priority", "value": "${priority}" },
+        { "title": "Submitted", "value": "${requestedDate}" }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Description",
+      "weight": "Bolder",
+      "size": "Small",
+      "spacing": "Medium"
+    },
+    {
+      "type": "TextBlock",
+      "text": "${description}",
+      "wrap": true,
+      "size": "Small",
+      "spacing": "None"
+    },
+    {
+      "type": "Container",
+      "spacing": "Medium",
+      "separator": true,
+      "$when": "${hasMaintenanceNotes}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Maintenance Update",
+          "weight": "Bolder",
+          "size": "Small"
+        },
+        {
+          "type": "TextBlock",
+          "text": "${maintenanceNotes}",
+          "wrap": true,
+          "size": "Small",
+          "spacing": "None"
+        },
+        {
+          "type": "TextBlock",
+          "text": "Updated: ${maintenanceUpdatedDate}",
+          "isSubtle": true,
+          "size": "Small",
+          "spacing": "None"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "spacing": "Medium",
+      "separator": true,
+      "$when": "${hasManagerNotes}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Manager Review",
+          "weight": "Bolder",
+          "size": "Small"
+        },
+        {
+          "type": "TextBlock",
+          "text": "${managerNotes}",
+          "wrap": true,
+          "size": "Small",
+          "spacing": "None"
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "Completed: ${completedDate}",
+      "color": "Good",
+      "size": "Small",
+      "spacing": "Small",
+      "$when": "${hasCompletedDate}"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "TextBlock",
+      "text": "${title}",
+      "weight": "Bolder",
+      "size": "Medium",
+      "wrap": true
+    },
+    {
+      "type": "TextBlock",
+      "text": "Select the time range for the chart:",
+      "wrap": true,
+      "spacing": "Small"
+    }
+  ],
+  "actions": [
+    {
+      "id": "range7d",
+      "type": "Action.Submit",
+      "title": "7 Days",
+      "data": { "id": "setRange", "range": "7D" }
+    },
+    {
+      "id": "range30d",
+      "type": "Action.Submit",
+      "title": "30 Days",
+      "data": { "id": "setRange", "range": "30D" }
+    },
+    {
+      "id": "range1y",
+      "type": "Action.Submit",
+      "title": "1 Year",
+      "data": { "id": "setRange", "range": "1Y" }
+    }
+  ]
+}

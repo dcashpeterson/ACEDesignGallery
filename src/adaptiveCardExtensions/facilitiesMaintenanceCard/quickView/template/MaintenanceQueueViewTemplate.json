@@ -1,0 +1,143 @@
+{
+  "schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "type": "AdaptiveCard",
+  "version": "1.5",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "columns": [
+        {
+          "type": "Column",
+          "width": "stretch",
+          "items": [
+            {
+              "type": "TextBlock",
+              "text": "My Maintenance Queue",
+              "weight": "Bolder",
+              "size": "Medium"
+            }
+          ]
+        },
+        {
+          "type": "Column",
+          "width": "auto",
+          "items": [
+            {
+              "type": "ActionSet",
+              "actions": [
+                {
+                  "type": "Action.Submit",
+                  "title": "My Requests",
+                  "data": { "id": "view-mine" }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "TextBlock",
+      "text": "No items currently assigned to you.",
+      "isSubtle": true,
+      "size": "Small",
+      "wrap": true,
+      "spacing": "Medium",
+      "$when": "${!hasItems}"
+    },
+    {
+      "type": "Container",
+      "$data": "${items}",
+      "$when": "${hasItems}",
+      "separator": true,
+      "spacing": "Small",
+      "style": "emphasis",
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${title}",
+                  "weight": "Bolder",
+                  "size": "Small",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${category} · ${location}",
+                  "size": "Small",
+                  "isSubtle": true,
+                  "spacing": "None",
+                  "wrap": true
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "Requested by ${requestedByName} on ${requestedDate}",
+                  "size": "Small",
+                  "isSubtle": true,
+                  "spacing": "None"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "auto",
+              "verticalContentAlignment": "Center",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "${priority}",
+                  "size": "Small",
+                  "color": "Attention",
+                  "$when": "${priority == 'Critical'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${priority}",
+                  "size": "Small",
+                  "color": "Warning",
+                  "$when": "${priority == 'High'}"
+                },
+                {
+                  "type": "TextBlock",
+                  "text": "${priority}",
+                  "size": "Small",
+                  "color": "Default",
+                  "$when": "${priority == 'Medium' || priority == 'Low'}"
+                },
+                {
+                  "type": "ActionSet",
+                  "spacing": "Small",
+                  "actions": [
+                    {
+                      "type": "Action.Submit",
+                      "title": "Update",
+                      "style": "positive",
+                      "data": {
+                        "id": "update",
+                        "requestId": "${id}",
+                        "title": "${title}",
+                        "status": "${status}",
+                        "category": "${category}",
+                        "location": "${location}",
+                        "priority": "${priority}",
+                        "requestedDate": "${requestedDate}",
+                        "requestedByName": "${requestedByName}",
+                        "maintenanceNotes": "${maintenanceNotes}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

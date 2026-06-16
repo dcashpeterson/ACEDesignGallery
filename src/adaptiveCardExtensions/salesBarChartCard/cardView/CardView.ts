@@ -2,12 +2,15 @@ import {
   BarChartCardView,
   BaseComponentsCardView,
   ComponentsCardViewParameters,
+  IExternalLinkCardAction,
   IBarChartSeries,
+  IQuickViewCardAction,
   MaxThreeTuple
 } from '@microsoft/sp-adaptive-card-extension-base';
 import {
   ISalesBarChartCardProps,
-  ISalesBarChartCardState
+  ISalesBarChartCardState,
+  QUICK_VIEW_ID
 } from '../SalesBarChartCardAdaptiveCardExtension';
 
 export class CardView extends BaseComponentsCardView<
@@ -53,4 +56,11 @@ export class CardView extends BaseComponentsCardView<
       ]
     });
   }
+
+  public get onCardSelection(): IQuickViewCardAction | IExternalLinkCardAction | undefined {
+      return {
+        type: 'QuickView',
+        parameters: { view: QUICK_VIEW_ID }
+      };
+    }
 }

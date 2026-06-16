@@ -3,6 +3,7 @@ declare interface ISalesBarChartCardAdaptiveCardExtensionStrings {
   TitleFieldLabel: string;
   SiteUrlFieldLabel: string;
   SiteUrlFieldDescription: string;
+  Months: string[];
 }
 
 declare module 'SalesBarChartCardAdaptiveCardExtensionStrings' {

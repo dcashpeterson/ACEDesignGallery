@@ -1,6 +1,7 @@
 import type { IPropertyPaneConfiguration } from '@microsoft/sp-property-pane';
 import { BaseAdaptiveCardExtension } from '@microsoft/sp-adaptive-card-extension-base';
 import { CardView } from './cardView/CardView';
+import { QuickView } from './quickView/ChartView';
 import { SalesBarChartCardPropertyPane } from './SalesBarChartCardPropertyPane';
 import { ISalesDataSeries } from '../../common/models/models';
 import { SalesDataService } from '../../common/services/SalesDataService';
@@ -17,6 +18,7 @@ export interface ISalesBarChartCardState {
 }
 
 const CARD_VIEW_ID: string = 'SalesBarChartCard_CARD_VIEW';
+export const QUICK_VIEW_ID: string = 'SalesBarChartCard_QUICK_VIEW';
 
 export default class SalesBarChartCardAdaptiveCardExtension extends BaseAdaptiveCardExtension<
   ISalesBarChartCardProps,
@@ -34,6 +36,7 @@ export default class SalesBarChartCardAdaptiveCardExtension extends BaseAdaptive
     };
 
     this.cardNavigator.register(CARD_VIEW_ID, () => new CardView());
+    this.quickViewNavigator.register(QUICK_VIEW_ID, () => new QuickView());
 
     try {
       const siteUrl = this.properties.siteUrl || this.context.pageContext.web.absoluteUrl;

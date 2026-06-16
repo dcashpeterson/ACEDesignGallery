@@ -1,11 +1,6 @@
 import { ISPFxAdaptiveCard, BaseAdaptiveCardQuickView, ISubmitActionArguments } from '@microsoft/sp-adaptive-card-extension-base';
 import template from './template/ChartQuickViewTemplate.json';
-import {
-  ISalesDataCardProps,
-  ISalesDataCardState,
-  DETAIL_QUICK_VIEW_ID,
-  salesDataCardInstance
-} from '../SalesDataCardAdaptiveCardExtension';
+import {ISalesDataCardProps,ISalesDataCardState,DETAIL_QUICK_VIEW_ID,salesDataCardInstance} from '../SalesDataCardAdaptiveCardExtension';
 
 export interface IChartQuickViewData {
   title: string;
